@@ -31,7 +31,7 @@ Express Cassandra utilities module for [NestJS](https://github.com/nestjs/nest) 
 ## Installation
 
 ```bash
-$ npm i --save @iaminfinity/express-cassandra
+$ npm i --save @ouato/nestjs-express-cassandra
 ```
 ## Usage
 
