@@ -29,7 +29,7 @@
   "devDependencies": {
     "@nestjs/common": "7.6.15",
     "@nestjs/core": "7.6.15",
-    "@types/node": "10.12.18",
+    "@types/node": "16.4.10",
     "husky": "3.0.9",
     "lint-staged": "9.4.2",
     "prettier": "1.18.2",
