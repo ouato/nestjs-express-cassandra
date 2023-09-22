@@ -21,22 +21,22 @@
   },
   "homepage": "https://github.com/ouato/nestjs-express-cassandra",
   "peerDependencies": {
-    "@nestjs/common": "^10.2.6",
-    "@nestjs/core": "^10.2.6",
-    "reflect-metadata": "^0.1.12",
-    "rxjs": "^7.1.0"
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
-    "@nestjs/common": "^10.2.6",
-    "@nestjs/core": "^10.2.6",
-    "@types/node": "10.12.18",
-    "@types/uuid": "^8.3.3",
-    "husky": "3.0.9",
-    "lint-staged": "^12.1.4",
-    "prettier": "1.18.2",
-    "reflect-metadata": "0.1.13",
-    "rxjs": "^7.1.0",
+    "@nestjs/common": "^10.0.0",
+    "@nestjs/core": "^10.0.0",
+    "@types/node": "^20.3.1",
+    "@types/uuid": "^9.0.4",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.1",
     "tslint": "5.20.0",
+    "lint-staged": "^12.1.4",
+    "husky": "3.0.9",
+    "prettier": "1.18.2",
     "typescript": "3.6.4"
   },
   "lint-staged": {
