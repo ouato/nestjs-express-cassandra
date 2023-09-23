@@ -1,6 +1,6 @@
 {
   "name": "@ouato/nestjs-express-cassandra",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "description": "Nest - modern, fast, powerful node.js web framework (@express-cassandra)",
   "author": {
     "name": "Ouato",
@@ -21,18 +21,14 @@
   },
   "homepage": "https://github.com/ouato/nestjs-express-cassandra",
   "peerDependencies": {
-    "@nestjs/common": "^10.0.0",
-    "@nestjs/core": "^10.0.0",
+    "@nestjs/common": "^9.4.0",
+    "@nestjs/core": "^9.4.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
-    "@nestjs/common": "^10.0.0",
-    "@nestjs/core": "^10.0.0",
     "@types/node": "^20.3.1",
     "@types/uuid": "^9.0.4",
-    "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.1",
     "tslint": "5.20.0",
     "lint-staged": "^12.1.4",
     "husky": "3.0.9",
@@ -46,7 +42,7 @@
     ]
   },
   "dependencies": {
-    "cassandra-driver": "^4.5.2",
+    "cassandra-driver": "^4.7.2",
     "express-cassandra": "^2.7.0",
     "merge-deep": "^3.0.3"
   },
