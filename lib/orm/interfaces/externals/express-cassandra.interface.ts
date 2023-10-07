@@ -259,6 +259,15 @@ export interface FindSubQueryStatic {
   $solr_query?: string;
 }
 
+export interface FindOptionsStatic<T> {
+  $orderby?: {
+    $asc?: keyof T | Array<keyof T>;
+    $desc?: keyof T | Array<keyof T>;
+  };
+
+  $limit?: number;
+}
+
 export interface SaveOptionsStatic {
   ttl?: number;
 
