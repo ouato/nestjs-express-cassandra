@@ -45,8 +45,8 @@
     ]
   },
   "dependencies": {
-    "cassandra-driver": "^4.5.2",
-    "express-cassandra": "^2.7.0",
+    "cassandra-driver": "^4.8.0",
+    "express-cassandra": "^2.9.1",
     "merge-deep": "^3.0.3"
   },
   "keywords": [
