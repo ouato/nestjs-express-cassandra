@@ -8,7 +8,11 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist",
+    "dist": "tsc -p tsconfig.json",
+    "prepack": "node -e \"require('fs').mkdirSync('./release', { recursive: true })\"",
+    "pack": "npm pack --pack-destination ./release",
+    "build": "npm run clean && npm run dist && npm run prepack && npm run pack",
     "prepublish:npm": "npm run build",
     "publish:npm": "npm publish --access public",
     "prepublish:next": "npm run build",
@@ -30,8 +34,11 @@
     "@nestjs/common": "^10.4.20",
     "@nestjs/core": "^10.4.20",
     "@types/node": "10.12.18",
+    "@types/uuid": "^10.0.0",
+    "mkdirp": "^3.0.1",
     "prettier": "^3.6.2",
     "reflect-metadata": "^0.1.13",
+    "rimraf": "^5.0.10",
     "rxjs": "^7.8.2",
     "tslint": "5.20.0",
     "typescript": "^5.9.3"
@@ -45,7 +52,8 @@
   "dependencies": {
     "cassandra-driver": "^4.8.0",
     "express-cassandra": "^2.9.1",
-    "merge-deep": "^3.0.3"
+    "merge-deep": "^3.0.3",
+    "uuid": "^13.0.0"
   },
   "keywords": [
     "nestjs",

@@ -1,5 +1,5 @@
-import { Observable } from 'rxjs';
-import { delay, retryWhen, scan } from 'rxjs/operators';
+import { Observable, throwError, timer } from 'rxjs';
+import { delay, retry, scan } from 'rxjs/operators';
 import { Logger, Type } from '@nestjs/common';
 import { ConnectionOptions, Connection, Repository } from '../orm';
 import { v4 as uuid } from 'uuid';
@@ -57,10 +57,10 @@ export function getConnectionToken(
   return DEFAULT_CONNECTION_NAME === connection
     ? Connection
     : 'string' === typeof connection
-    ? `${connection}Connection`
-    : DEFAULT_CONNECTION_NAME === connection.name || !connection.name
-    ? Connection
-    : `${connection.name}Connection`;
+      ? `${connection}Connection`
+      : DEFAULT_CONNECTION_NAME === connection.name || !connection.name
+        ? Connection
+        : `${connection.name}Connection`;
 }
 
 /**
@@ -102,33 +102,28 @@ export function handleRetry(
 ): <T>(source: Observable<T>) => Observable<T> {
   return <T>(source: Observable<T>) =>
     source.pipe(
-      retryWhen(e =>
-        e.pipe(
-          scan((errorCount, error: Error) => {
-            if (toRetry && !toRetry(error)) {
-              throw error;
-            }
-            const connectionInfo =
-              connectionName === DEFAULT_CONNECTION_NAME
-                ? ''
-                : ` (${connectionName})`;
-            const verboseMessage = verboseRetryLog
-              ? ` Message: ${error.message}.`
-              : '';
+      retry({
+        count: retryAttempts,
+        delay: (error, retryCount) => {
+          // Conditional retry check
+          if (toRetry && !toRetry(error)) {
+            return throwError(() => error); // stop retrying
+          }
 
-            logger.error(
-              `Unable to connect to the database${connectionInfo}.${verboseMessage} Retrying (${errorCount +
-                1})...`,
-              error.stack,
-            );
-            if (errorCount + 1 >= retryAttempts) {
-              throw error;
-            }
-            return errorCount + 1;
-          }, 0),
-          delay(retryDelay),
-        ),
-      ),
+          // Logging
+          const connectionInfo =
+            connectionName === DEFAULT_CONNECTION_NAME ? '' : ` (${connectionName})`;
+          const verboseMessage = verboseRetryLog ? ` Message: ${error.message}.` : '';
+
+          logger.error(
+            `Unable to connect to the database${connectionInfo}.${verboseMessage} Retrying (${retryCount})...`,
+            error.stack,
+          );
+
+          // Return an observable that delays the next retry
+          return timer(retryDelay);
+        },
+      }),
     );
 }
 
