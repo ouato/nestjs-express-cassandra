@@ -54,9 +54,8 @@ export function addAttributeOptions(
   setAttributes(target, attributes);
 }
 
-export function getOptions(target: any): any | undefined {
-  const options = Reflect.getMetadata(OPTIONS_KEY, target);
-  return { ...options } || {};
+export function getOptions(target: any): any {
+  return { ...(Reflect.getMetadata(OPTIONS_KEY, target) || {}) };
 }
 
 export function setOptions(target: any, options: any): void {

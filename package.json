@@ -1,6 +1,6 @@
 {
   "name": "@ouato/nestjs-express-cassandra",
-  "version": "6.0.8",
+  "version": "6.0.9",
   "description": "Nest - modern, fast, powerful node.js web framework (@express-cassandra)",
   "author": {
     "name": "Ouato",
@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist && tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json",
     "prepublish:npm": "npm run build",
     "publish:npm": "npm publish --access public",
     "prepublish:next": "npm run build",
@@ -21,22 +21,20 @@
   },
   "homepage": "https://github.com/ouato/nestjs-express-cassandra",
   "peerDependencies": {
-    "@nestjs/common": "^8.2.4",
-    "@nestjs/core": "^8.2.4",
-    "reflect-metadata": "^0.1.12",
-    "rxjs": "^7.1.0"
+    "@nestjs/common": "^10.4.20",
+    "@nestjs/core": "^10.4.20",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.2"
   },
   "devDependencies": {
-    "@nestjs/common": "^8.2.4",
-    "@nestjs/core": "^8.2.4",
+    "@nestjs/common": "^10.4.20",
+    "@nestjs/core": "^10.4.20",
     "@types/node": "10.12.18",
-    "husky": "3.0.9",
-    "lint-staged": "^12.1.4",
-    "prettier": "1.18.2",
-    "reflect-metadata": "0.1.13",
-    "rxjs": "^7.1.0",
+    "prettier": "^3.6.2",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.2",
     "tslint": "5.20.0",
-    "typescript": "3.6.4"
+    "typescript": "^5.9.3"
   },
   "lint-staged": {
     "*.ts": [
