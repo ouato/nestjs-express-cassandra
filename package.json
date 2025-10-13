@@ -1,11 +1,17 @@
 {
   "name": "@ouato/nestjs-express-cassandra",
-  "version": "6.2.0",
+  "version": "6.2.1",
   "description": "Nest - modern, fast, powerful node.js web framework (@express-cassandra)",
-  "author": {
-    "name": "Ouato",
-    "email": "ouato@hotmail.com"
-  },
+  "authors": [
+    {
+      "name": "Ouato",
+      "email": "ouato@hotmail.com"
+    },
+    {
+      "name": "Ertayle",
+      "email": "ertayle_@hotmail.com"
+    }
+  ],
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist",
@@ -28,7 +34,8 @@
     "@nestjs/common": "^10.4.20",
     "@nestjs/core": "^10.4.20",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.2"
+    "rxjs": "^7.8.2",
+    "uuid": ">=8 <14"
   },
   "devDependencies": {
     "@nestjs/common": "^10.4.20",
@@ -41,7 +48,8 @@
     "rimraf": "^5.0.10",
     "rxjs": "^7.8.2",
     "tslint": "5.20.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "uuid": "^13.0.0"
   },
   "lint-staged": {
     "*.ts": [
@@ -52,8 +60,7 @@
   "dependencies": {
     "cassandra-driver": "^4.8.0",
     "express-cassandra": "^2.9.1",
-    "merge-deep": "^3.0.3",
-    "uuid": "^13.0.0"
+    "merge-deep": "^3.0.3"
   },
   "keywords": [
     "nestjs",
