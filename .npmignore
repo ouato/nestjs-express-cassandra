@@ -1,5 +1,6 @@
 # source
 lib
+release
 index.ts
 package-lock.json
 tslint.json

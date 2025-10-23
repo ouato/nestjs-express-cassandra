@@ -69,6 +69,8 @@ fabric.properties
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
+[Pp]ackage/
+[Pp]ackages/
 x64/
 x86/
 bld/

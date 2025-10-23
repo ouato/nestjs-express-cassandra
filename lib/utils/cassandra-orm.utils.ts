@@ -1,8 +1,7 @@
 import { Observable, throwError, timer } from 'rxjs';
-import { delay, retry, scan } from 'rxjs/operators';
+import { retry } from 'rxjs/operators';
 import { Logger, Type } from '@nestjs/common';
 import { ConnectionOptions, Connection, Repository } from '../orm';
-import { v4 as uuid } from 'uuid';
 import { EntityClass } from '../interfaces/entity-class.type';
 import { DEFAULT_CONNECTION_NAME } from '../express-cassandra.constant';
 import { CircularDependencyException } from '../exceptions/circular-dependency.exception';
@@ -131,4 +130,6 @@ export function getConnectionName(options: ConnectionOptions): string {
   return options && options.name ? options.name : DEFAULT_CONNECTION_NAME;
 }
 
-export const generateString = (): string => uuid();
+export const generateString = () =>
+  // tslint:disable-next-line:no-bitwise
+  [...Array(10)].map(i => ((Math.random() * 36) | 0).toString(36)).join;
